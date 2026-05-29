@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --bg-deep: #000000;
+  --bg-mid: #05070a;
+  --accent: #3b82f6;
+  --accent-2: #fb923c;
+  --text-primary: #e2e8f0;
+  --text-muted: rgba(226, 232, 240, 0.45);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.14);
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Glassmorphism Utility ──────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+/* ─── Glass Pill (tighter, pill-shaped variant) ──────────────── */
+.glass-pill {
+  background: rgba(59, 130, 246, 0.12);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+}
+
+/* ─── Glass Panel (card variant with top-light) ──────────────── */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.glass-panel:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+}
+
+.glass-panel:hover::before {
+  opacity: 1;
+}
+
+.glass-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Glass Button ───────────────────────────────────────────── */
+.glass-button {
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--accent);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-button:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* ─── Skill Group Left-Border Accents ────────────────────────── */
+.accent-languages { border-left: 2px solid #60a5fa; }
+.accent-web       { border-left: 2px solid var(--accent); }
+.accent-tools     { border-left: 2px solid #38bdf8; }
+.accent-cs        { border-left: 2px solid #fb923c; }
+
+/* ─── Material Symbols base style ───────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── WebGL Fallback gradient ────────────────────────────────── */
+.shader-fallback {
+  background: radial-gradient(ellipse at 50% 0%,
+    rgba(59, 130, 246, 0.35) 0%,
+    rgba(30, 58, 138, 0.2) 35%,
+    var(--bg-deep) 75%
+  );
+}
