@@ -28,7 +28,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative w-full max-w-container-max mx-auto px-6 md:px-margin-desktop py-section-gap"
+      className="relative w-full max-w-container-max mx-auto px-6 md:px-margin-desktop py-16 md:py-section-gap"
     >
       {/* ── Ambient glow ── */}
       <div

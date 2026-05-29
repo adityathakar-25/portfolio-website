@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+
 // ─── Shared animation variants ─────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,6 +27,7 @@ export default function Hero() {
   const title   = useFadeUp()
   const tagline = useFadeUp()
   const ctas    = useFadeUp()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <section
@@ -59,10 +60,10 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Brand monogram — centred absolutely */}
+            {/* Brand monogram */}
             <a
               href="#hero"
-              className="absolute left-1/2 -translate-x-1/2 z-20 font-jakarta tracking-tighter text-3xl md:text-4xl hover:opacity-80 transition-opacity duration-200 select-none"
+              className="md:absolute md:left-1/2 md:-translate-x-1/2 z-20 font-jakarta tracking-tighter text-3xl md:text-4xl hover:opacity-80 transition-opacity duration-200 select-none"
               style={{ color: '#ffffff', fontWeight: 800 }}
             >
               AT
@@ -87,8 +88,40 @@ export default function Hero() {
                 </a>
               </div>
 
-
+              {/* Mobile Menu Toggle Button */}
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="flex md:hidden items-center justify-center p-2 text-white/80 hover:text-white transition-colors"
+                aria-label="Toggle Menu"
+              >
+                <span className="material-symbols-outlined text-2xl">
+                  {menuOpen ? 'close' : 'menu'}
+                </span>
+              </button>
             </div>
+
+            {/* Mobile Dropdown Overlay Menu */}
+            {menuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full left-0 w-full border-x-0 border-t border-b border-white/[0.06] flex flex-col py-6 px-6 gap-6 z-40"
+                style={{ background: 'rgba(5, 7, 10, 0.95)', backdropFilter: 'blur(24px)', borderBottom: '1px solid var(--glass-border)' }}
+              >
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="font-label-sm text-[12px] uppercase tracking-widest text-white/85 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </motion.div>
+            )}
           </div>
         </nav>
 

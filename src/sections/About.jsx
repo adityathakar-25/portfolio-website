@@ -32,7 +32,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full max-w-container-max mx-auto px-6 md:px-margin-desktop py-section-gap"
+      className="relative w-full max-w-container-max mx-auto px-6 md:px-margin-desktop py-16 md:py-section-gap"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter lg:gap-20 w-full">
 

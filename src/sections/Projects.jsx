@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 
 const PROJECTS = [
@@ -277,6 +277,14 @@ function StaticGrid({ projects }) {
 // ─── Main Section ──────────────────────────────────────────────────────────
 export default function Projects() {
   const [active, setActive] = useState('All')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const visible = active === 'All'
     ? PROJECTS
@@ -295,7 +303,7 @@ export default function Projects() {
         initial="hidden"
         animate={headerIn ? 'visible' : 'hidden'}
         variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
-        className="w-full max-w-container-max mx-auto px-6 md:px-margin-desktop pt-section-gap pb-4"
+        className="w-full max-w-container-max mx-auto px-6 md:px-margin-desktop pt-16 md:pt-section-gap pb-4"
       >
         <motion.div variants={fadeUp} className="mb-6">
           <p className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Projects</p>
@@ -324,11 +332,11 @@ export default function Projects() {
         </motion.div>
       </motion.div>
 
-      {/* ── Cards — horizontal scroll when showing All, grid when filtered ── */}
-      {active === 'All' ? (
+      {/* ── Cards — horizontal scroll when showing All on desktop, grid otherwise ── */}
+      {active === 'All' && !isMobile ? (
         <HorizontalScrollTrack projects={visible} />
       ) : (
-        <div className="w-full max-w-container-max mx-auto px-6 md:px-margin-desktop pb-section-gap pt-6">
+        <div className="w-full max-w-container-max mx-auto px-6 md:px-margin-desktop pb-16 md:pb-section-gap pt-6">
           <StaticGrid key={active} projects={visible} />
         </div>
       )}
