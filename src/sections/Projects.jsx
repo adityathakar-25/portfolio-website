@@ -127,7 +127,7 @@ function HorizontalScrollTrack({ projects }) {
     /* Outer tall wrapper that creates the scroll range */
     <div
       ref={wrapperRef}
-      style={{ height: wrapperHeight, position: 'relative' }}
+      style={{ height: wrapperHeight, position: 'relative', overflow: 'hidden' }}
     >
       {/* Sticky viewport — stays pinned while wrapper scrolls */}
       <div
@@ -277,7 +277,9 @@ function StaticGrid({ projects }) {
 // ─── Main Section ──────────────────────────────────────────────────────────
 export default function Projects() {
   const [active, setActive] = useState('All')
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 768
+  )
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
