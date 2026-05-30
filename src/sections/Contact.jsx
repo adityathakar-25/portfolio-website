@@ -80,7 +80,7 @@ export default function Contact() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop py-16 md:py-section-gap flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-container-max mx-auto px-5 md:px-margin-desktop py-14 md:py-section-gap flex flex-col items-center">
 
         {/* ── Header ── */}
         <motion.header
@@ -117,7 +117,7 @@ export default function Contact() {
               target={card.id === 'github' || card.id === 'linkedin' ? '_blank' : undefined}
               rel={card.id === 'github' || card.id === 'linkedin' ? 'noopener noreferrer' : undefined}
               whileHover={{ y: -5, boxShadow: '0 0 20px rgba(59,130,246,0.15)' }}
-              className="group relative overflow-hidden rounded-xl flex flex-col items-center text-center p-10"
+              className="group relative overflow-hidden rounded-xl flex flex-col items-center text-center p-7 md:p-10"
               style={{
                 background: 'rgba(255,255,255,0.02)',
                 backdropFilter: 'blur(24px)',
@@ -164,7 +164,7 @@ export default function Contact() {
         style={{ borderTop: '1px solid var(--glass-border)' }}
       >
         <p className="uppercase tracking-widest text-on-surface-variant opacity-60" style={{ fontSize: '0.75rem' }}>
-          © 2025 Aditya Thakar
+          © 2026 Aditya Thakar
         </p>
       </motion.footer>
     </section>

@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
+// ─── Detect touch / coarse-pointer devices (phones, tablets) ─────────────────
+function isTouchDevice() {
+  if (typeof window === 'undefined') return false
+  return (
+    window.matchMedia('(pointer: coarse)').matches ||
+    navigator.maxTouchPoints > 0
+  )
+}
+
 // ─── SmoothCursor v2 ──────────────────────────────────────────────────────────
 // Architecture:
 //   • A crisp 5px DOT  → raw cursor position, no lag, always sharp
@@ -44,8 +53,9 @@ function Ripple({ x, y, color, onDone }) {
   )
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
-export default function SmoothCursor() {
+// ─── Inner cursor — only rendered on non-touch devices ───────────────────────
+// All hooks live here unconditionally, satisfying React's rules of hooks.
+function DesktopCursor() {
   const [isVisible,  setIsVisible]  = useState(false)
   const [isHovering, setIsHovering] = useState(false)
   const [isClicking, setIsClicking] = useState(false)
@@ -159,7 +169,7 @@ export default function SmoothCursor() {
 
   return (
     <>
-      {/* ── Global cursor hide ── */}
+      {/* ── Global cursor hide (desktop only — touch guard above already exits) ── */}
       <style>{`html,body,*{cursor:none !important;}`}</style>
 
       {/* ── Ripples ── */}
@@ -253,4 +263,12 @@ export default function SmoothCursor() {
       />
     </>
   )
+}
+
+// ─── Public wrapper — hides cursor on touch/mobile devices ───────────────────
+export default function SmoothCursor() {
+  // isTouchDevice() is called once synchronously on mount via lazy init — safe.
+  const [isTouch] = useState(() => isTouchDevice())
+  if (isTouch) return null
+  return <DesktopCursor />
 }
