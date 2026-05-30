@@ -24,6 +24,13 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* Hide native scrollbar globally — custom ScrollBar handles desktop */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE / Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari / mobile WebKit */
 }
 
 body {

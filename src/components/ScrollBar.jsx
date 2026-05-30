@@ -107,11 +107,6 @@ function DesktopScrollBar() {
 
   return (
     <>
-      {/* ── Hide native scrollbar globally ────────────────────────────────── */}
-      <style>{`
-        html::-webkit-scrollbar { display: none; }
-        html { scrollbar-width: none; -ms-overflow-style: none; }
-      `}</style>
 
       {/* ── Outer wrapper (vertically centered, right edge) ─────────────── */}
       <div
