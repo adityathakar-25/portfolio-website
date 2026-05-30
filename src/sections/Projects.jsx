@@ -127,7 +127,7 @@ function HorizontalScrollTrack({ projects }) {
     /* Outer tall wrapper that creates the scroll range */
     <div
       ref={wrapperRef}
-      style={{ height: wrapperHeight, position: 'relative', overflow: 'hidden' }}
+      style={{ height: wrapperHeight, position: 'relative' }}
     >
       {/* Sticky viewport — stays pinned while wrapper scrolls */}
       <div

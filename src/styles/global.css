@@ -23,14 +23,13 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  /* Hide native scrollbar globally — custom ScrollBar handles desktop */
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE / Edge */
+  /* scrollbar-width: none hides Firefox scrollbar on html element */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 html::-webkit-scrollbar {
-  display: none;                /* Chrome / Safari / mobile WebKit */
+  display: none;
 }
 
 body {
@@ -39,10 +38,28 @@ body {
   color: var(--text-primary);
   margin: 0;
   padding: 0;
+  /* overflow-x on body only — avoids iOS scroll-container trap on html */
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Hide body scrollbar — body is the actual scroll container on most mobile browsers */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safety net: hide scrollbar on React root in case it becomes a scroll container */
+#root {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#root::-webkit-scrollbar {
+  display: none;
 }
 
 /* ─── Glassmorphism Utility ──────────────────────────────────── */
