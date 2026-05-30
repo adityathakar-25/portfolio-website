@@ -1,6 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
+// ─── Detect touch / coarse-pointer devices ────────────────────────────────────
+function isTouchDevice() {
+  if (typeof window === 'undefined') return false
+  return (
+    window.matchMedia('(pointer: coarse)').matches ||
+    navigator.maxTouchPoints > 0
+  )
+}
+
 // ─── ScrollBar ────────────────────────────────────────────────────────────────
 // Fixed right-side scroll progress indicator.
 // • Glass track (2px)
@@ -22,7 +31,7 @@ const ORANGE = '#fb923c'
 // Track height in px (must match inline style below)
 const TRACK_H = 340
 
-export default function ScrollBar() {
+function DesktopScrollBar() {
   // 0–1 raw scroll fraction → spring smoothed
   const rawPct     = useMotionValue(0)
   const smoothPct  = useSpring(rawPct, { damping: 32, stiffness: 200, mass: 0.55 })
@@ -98,11 +107,10 @@ export default function ScrollBar() {
 
   return (
     <>
-      {/* ── Hide native scrollbar + hide component on mobile ─────────────── */}
+      {/* ── Hide native scrollbar globally ────────────────────────────────── */}
       <style>{`
         html::-webkit-scrollbar { display: none; }
         html { scrollbar-width: none; -ms-overflow-style: none; }
-        @media (max-width: 768px) { .scrollbar-root { display: none !important; } }
       `}</style>
 
       {/* ── Outer wrapper (vertically centered, right edge) ─────────────── */}
@@ -220,4 +228,11 @@ export default function ScrollBar() {
       </div>
     </>
   )
+}
+
+// ─── Public wrapper — not rendered on touch/mobile devices ───────────────────
+export default function ScrollBar() {
+  const [isTouch] = useState(() => isTouchDevice())
+  if (isTouch) return null
+  return <DesktopScrollBar />
 }
