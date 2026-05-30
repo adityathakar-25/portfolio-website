@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
 
             {/* Right nav links — Education · Contact */}
-            <div className="flex items-center justify-end gap-10 z-10 w-full md:w-1/3">
+            <div className="flex items-center justify-end gap-10 z-10 ml-auto md:ml-0 md:w-1/3">
               <div className="hidden md:flex items-center gap-10">
                 <a
                   href="#education"
