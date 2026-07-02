@@ -207,7 +207,7 @@ export default function Education() {
                 <motion.a
                   whileHover={{ scale: 1.05, x: 5 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://www.coursera.org/account/accomplishments/verify/93N4X9BYS9LM"
+                  href="https://www.coursera.org/account/accomplishments/verify/EGKYFCCDZS4T"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-button px-4 py-2 rounded-full font-label-sm text-[10px] text-white uppercase tracking-widest hover:text-[var(--accent)] whitespace-nowrap text-center transition-colors self-start sm:self-center"
@@ -235,7 +235,7 @@ export default function Education() {
             {/* Stats 2x2 Grid */}
             <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-8 md:mb-10">
               <div>
-                <span className="font-display-lg-mobile text-xl md:text-3xl text-white font-bold block mb-1">207</span>
+                <span className="font-display-lg-mobile text-xl md:text-3xl text-white font-bold block mb-1">228</span>
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Problems Solved</span>
               </div>
               <div>
@@ -243,11 +243,11 @@ export default function Education() {
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Contest Rating</span>
               </div>
               <div>
-                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">37.79%</span>
+                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">37.96%</span>
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Top</span>
               </div>
               <div>
-                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">35</span>
+                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">22</span>
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Max Streak</span>
               </div>
             </div>
@@ -256,15 +256,15 @@ export default function Education() {
             <div className="flex flex-wrap gap-3 mb-10">
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[rgba(34,197,94,0.1)] text-green-400 border border-[rgba(34,197,94,0.2)]">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                Easy 98
+                Easy 102
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[rgba(245,158,11,0.1)] text-amber-400 border border-[rgba(245,158,11,0.2)]">
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                Medium 96
+                Medium 112
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-[rgba(239,68,68,0.1)] text-red-400 border border-[rgba(239,68,68,0.2)]">
                 <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
-                Hard 13
+                Hard 14
               </span>
             </div>
 
