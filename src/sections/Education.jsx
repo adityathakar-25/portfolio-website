@@ -72,7 +72,7 @@ export default function Education() {
           </div>
           <div className="glass-content flex flex-col justify-center items-start md:items-end md:text-right border-t md:border-t-0 md:border-l border-[var(--glass-border)] pt-6 md:pt-0 md:pl-10">
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="font-display-lg" style={{ color: 'var(--accent-2)', fontSize: 'clamp(2.5rem, 8vw, 3.75rem)' }}>8.31</span>
+              <span className="font-display-lg" style={{ color: 'var(--accent-2)', fontSize: 'clamp(2.5rem, 8vw, 3.75rem)' }}>8.34</span>
               <span className="font-body-lg text-on-surface-variant">CGPA</span>
             </div>
             <p className="font-label-sm text-xs text-outline uppercase tracking-widest bg-[rgba(255,255,255,0.05)] px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.05)] mt-2">Class of 2027</p>
@@ -235,7 +235,7 @@ export default function Education() {
             {/* Stats 2x2 Grid */}
             <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-8 md:mb-10">
               <div>
-                <span className="font-display-lg-mobile text-xl md:text-3xl text-white font-bold block mb-1">240</span>
+                <span className="font-display-lg-mobile text-xl md:text-3xl text-white font-bold block mb-1">280</span>
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Problems Solved</span>
               </div>
               <div>
@@ -243,7 +243,7 @@ export default function Education() {
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Contest Rating</span>
               </div>
               <div>
-                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">38.02%</span>
+                <span className="font-display-lg-mobile text-2xl md:text-3xl text-white font-bold block mb-1">38.31%</span>
                 <span className="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-widest">Top</span>
               </div>
               <div>

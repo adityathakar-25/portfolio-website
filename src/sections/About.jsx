@@ -61,7 +61,7 @@ export default function About() {
 
           <motion.div variants={fadeUp} className="inline-flex items-center px-5 py-3 rounded-full glass-pill w-max" style={{ borderLeft: '3px solid #3b82f6' }}>
             <span className="font-label-sm text-[0.8rem] text-on-surface uppercase tracking-widest">
-              8.31 GPA · Nirma University · 2027
+              8.34 GPA · Nirma University · 2027
             </span>
           </motion.div>
         </motion.div>
